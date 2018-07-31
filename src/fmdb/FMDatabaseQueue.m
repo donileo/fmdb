@@ -194,8 +194,9 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         block(db);
         
         if ([db hasOpenResultSets]) {
-            NSLog(@"Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]");
-            
+            NSLog(@"Warning: there are %ld open result set(s) around after performing [FMDatabaseQueue inDatabase:]",
+             (unsigned long)db.openResultSetsCount);
+
 #if defined(DEBUG) && DEBUG
             NSSet *openSetCopy = FMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);
             for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {

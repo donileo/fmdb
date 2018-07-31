@@ -343,6 +343,10 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     return [_openResultSets count] > 0;
 }
 
+- (NSUInteger)openResultSetsCount {
+  return [_openResultSets count];
+}
+
 - (void)closeOpenResultSets {
     
     //Copy the set so we don't get mutation errors

@@ -798,6 +798,9 @@ typedef NS_ENUM(int, FMDBCheckpointMode) {
 
 @property (nonatomic, readonly) BOOL hasOpenResultSets;
 
+/** Returns the amount of open results */
+@property (nonatomic, readonly) NSUInteger openResultSetsCount;
+
 /** Whether should cache statements or not
   */
 
